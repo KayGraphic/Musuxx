@@ -53,13 +53,13 @@ public class SongAdapter extends ArrayAdapter<Song> {
         Song currentSong = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
-        TextView nameTextView = (TextView) listItemView.findViewById(R.id.version_name);
+        TextView nameTextView = (TextView) listItemView.findViewById(R.id.song_name);
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
-        nameTextView.setText(currentSong.getVersionName());
+        nameTextView.setText(currentSong.getSongName());
 
         // Find the TextView in the list_item.xml layout with the ID version_number
-        TextView numberTextView = (TextView) listItemView.findViewById(R.id.version_number);
+        TextView numberTextView = (TextView) listItemView.findViewById(R.id.group_name);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
         numberTextView.setText(currentSong.getGroup());

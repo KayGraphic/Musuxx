@@ -11,10 +11,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Song {
-    // Name of the Android version (e.g. Gingerbread, Honeycomb, Ice Cream Sandwich)
-    private String mVersionName;
+    // Name of the Song
+    private String mSongName;
 
-    // Android version number (e.g. 2.3-2.7, 3.0-3.2.6, 4.0-4.0.4)
+    // Name of the Group
     private String mGroup;
 
     // Drawable resource ID
@@ -24,25 +24,25 @@ public class Song {
      * Create a new Song object.
      *
      * @param vName is the name of the Song
-     * @param vGroup is the musical gropup responsible
+     * @param vGroup is the musical group responsible
      * @param image is drawable reference ID that corresponds to the song cover
      * */
-    public Song(String vName, String vGroup, int imageResourceId)
+    public Song(String vSongName, String vGroup, int imageResourceId)
     {
-        mVersionName = vName;
+        mSongName = vSongName;
         mGroup = vGroup;
         mImageResourceId = imageResourceId;
     }
 
     /**
-     * Get the name of the Android version
+     * Get the name of the Song
      */
-    public String getVersionName() {
-        return mVersionName;
+    public String getSongName() {
+        return mSongName;
     }
 
     /**
-     * Get the Android version number
+     * Get the Group Responsible
      */
     public String getGroup() {
         return mGroup;
@@ -61,10 +61,8 @@ public class Song {
         private static final String LOG_TAG = SongAdapter.class.getSimpleName();
 
         /**
-         * This is our own custom constructor (it doesn't mirror a superclass constructor).
-         * The context is used to inflate the layout file, and the list is the data we want
-         * to populate into the lists.
-         *
+
+         *Custom Constructor
          * @param context        The current context. Used to inflate the layout file.
          * @param songObjects A List of AndroidFlavor objects to display in a list
          */
@@ -98,13 +96,13 @@ public class Song {
             Song currentSong = getItem(position);
 
             // Find the TextView in the list_item.xml layout with the ID version_name
-            TextView nameTextView = (TextView) listItemView.findViewById(R.id.version_name);
+            TextView nameTextView = (TextView) listItemView.findViewById(R.id.song_name);
             // Get the version name from the current AndroidFlavor object and
             // set this text on the name TextView
-            nameTextView.setText(currentSong.getVersionName());
+            nameTextView.setText(currentSong.getSongName());
 
             // Find the TextView in the list_item.xml layout with the ID version_number
-            TextView numberTextView = (TextView) listItemView.findViewById(R.id.version_number);
+            TextView numberTextView = (TextView) listItemView.findViewById(R.id.group_name);
             // Get the version number from the current AndroidFlavor object and
             // set this text on the number TextView
             numberTextView.setText(currentSong.getGroup());
